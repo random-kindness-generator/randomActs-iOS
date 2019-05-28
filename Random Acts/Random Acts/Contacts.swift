@@ -9,6 +9,12 @@
 import Foundation
 
 
-struct Contacts: Codable {
-    
+struct Contact: Codable {
+
+    var firstName: String
+    var lastName: String
+    var phoneNumber: Int?
+    var emailAddress: String?
+    var gesture: String
+
 }
