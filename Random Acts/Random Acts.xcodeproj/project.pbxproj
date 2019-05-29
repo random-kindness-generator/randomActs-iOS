@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E0229DDDF70022D645 /* Contacts.swift */; };
+		9E9730E3229EE3F10022D645 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E2229EE3F10022D645 /* Activity.swift */; };
+		9E9730E6229EE7FC0022D645 /* RandomActsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E5229EE7FC0022D645 /* RandomActsController.swift */; };
+		9E9730E9229EEFD90022D645 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E8229EEFD90022D645 /* User.swift */; };
 		A507D201229DC96700A36AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D200229DC96700A36AFC /* AppDelegate.swift */; };
 		A507D203229DC96700A36AFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D202229DC96700A36AFC /* ViewController.swift */; };
 		A507D206229DC96700A36AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A507D204229DC96700A36AFC /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		9E9730E0229DDDF70022D645 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		9E9730E2229EE3F10022D645 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		9E9730E5229EE7FC0022D645 /* RandomActsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomActsController.swift; sourceTree = "<group>"; };
+		9E9730E8229EEFD90022D645 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A507D1FD229DC96700A36AFC /* Random Acts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Random Acts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A507D200229DC96700A36AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A507D202229DC96700A36AFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +43,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E9730E4229EE4000022D645 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E9730E0229DDDF70022D645 /* Contacts.swift */,
+				9E9730E2229EE3F10022D645 /* Activity.swift */,
+				9E9730E8229EEFD90022D645 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E9730E7229EE8060022D645 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E9730E5229EE7FC0022D645 /* RandomActsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A507D1F4229DC96700A36AFC = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +80,14 @@
 		A507D1FF229DC96700A36AFC /* Random Acts */ = {
 			isa = PBXGroup;
 			children = (
-				9E9730E0229DDDF70022D645 /* Contacts.swift */,
 				A507D200229DC96700A36AFC /* AppDelegate.swift */,
 				A507D202229DC96700A36AFC /* ViewController.swift */,
 				A507D204229DC96700A36AFC /* Main.storyboard */,
+				9E9730E4229EE4000022D645 /* Models */,
 				A507D207229DC96B00A36AFC /* Assets.xcassets */,
 				A507D209229DC96B00A36AFC /* LaunchScreen.storyboard */,
 				A507D20C229DC96B00A36AFC /* Info.plist */,
+				9E9730E7229EE8060022D645 /* Controller */,
 			);
 			path = "Random Acts";
 			sourceTree = "<group>";
@@ -138,6 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9730E3229EE3F10022D645 /* Activity.swift in Sources */,
+				9E9730E6229EE7FC0022D645 /* RandomActsController.swift in Sources */,
+				9E9730E9229EEFD90022D645 /* User.swift in Sources */,
 				A507D203229DC96700A36AFC /* ViewController.swift in Sources */,
 				A507D201229DC96700A36AFC /* AppDelegate.swift in Sources */,
 				9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */,
