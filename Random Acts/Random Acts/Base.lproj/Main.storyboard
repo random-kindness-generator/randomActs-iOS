@@ -247,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OIl-8T-lon">
-                                <rect key="frame" x="20" y="148" width="374" height="150"/>
+                                <rect key="frame" x="20" y="148" width="374" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGl-a4-Tkg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -255,7 +255,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Las Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtt-XQ-MQG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtt-XQ-MQG">
                                         <rect key="frame" x="0.0" y="40" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -269,6 +269,12 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYZ-XK-EmO">
                                         <rect key="frame" x="0.0" y="120" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-yA-Yep">
+                                        <rect key="frame" x="0.0" y="160" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -293,9 +299,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressTextFieldOutlet" destination="PU5-yA-Yep" id="lZd-Zn-cot"/>
                         <outlet property="emailTextFieldOutlet" destination="iYZ-XK-EmO" id="SLE-Xu-Yyl"/>
-                        <outlet property="lastNameTextFieldOutlet" destination="mtt-XQ-MQG" id="7Bg-Ax-8JZ"/>
                         <outlet property="nameTextFieldOutlet" destination="aGl-a4-Tkg" id="gWl-hn-jSe"/>
+                        <outlet property="noteTextFieldOutlet" destination="mtt-XQ-MQG" id="7Bg-Ax-8JZ"/>
                         <outlet property="phoneNumberTextFieldOutlet" destination="Zdu-KX-o6d" id="aN4-6C-wyh"/>
                     </connections>
                 </viewController>

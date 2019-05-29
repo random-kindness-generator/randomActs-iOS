@@ -36,7 +36,7 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
 
-//        cell.textLabel.text = contacts[indexPath.row].name
+        cell.textLabel?.text = contacts[indexPath.row].name
 
         return cell
     }
