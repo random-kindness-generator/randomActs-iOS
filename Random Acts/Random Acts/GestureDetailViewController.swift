@@ -10,9 +10,16 @@ import UIKit
 
 class GestureDetailViewController: UIViewController {
 
+    @IBOutlet weak var gestureTextViewOutlet: UITextView!
+    
+    
+    @IBAction func saveButton(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     

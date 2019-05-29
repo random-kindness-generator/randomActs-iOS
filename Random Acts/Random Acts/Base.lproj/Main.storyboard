@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wfL-AD-5ed">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -39,6 +39,7 @@
                     <navigationItem key="navigationItem" title="Contacts" id="Xfj-Am-p2e">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7sl-sI-US9">
                             <connections>
+                                <action selector="addNewContactButton:" destination="3QX-Ng-ETk" id="dnd-6a-c6E"/>
                                 <segue destination="Eu9-tB-qv3" kind="show" identifier="addContact" id="dg8-sq-Lvc"/>
                             </connections>
                         </barButtonItem>
@@ -77,6 +78,7 @@
                     <navigationItem key="navigationItem" title="Good Will Gestures" id="wD6-hP-6DA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZvY-xh-HnN">
                             <connections>
+                                <action selector="addNewGestureButton:" destination="oWB-2l-hr9" id="94o-NX-uts"/>
                                 <segue destination="kEp-VL-tSM" kind="show" identifier="addGesture" id="8ki-bX-Ub2"/>
                             </connections>
                         </barButtonItem>
@@ -113,8 +115,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="1fw-hs-NXA"/>
                     <navigationItem key="navigationItem" title="New Gestures" id="9zm-3K-S3V">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mU3-P3-Ut1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mU3-P3-Ut1">
+                            <connections>
+                                <action selector="saveButton:" destination="kEp-VL-tSM" id="oZ5-XG-C6v"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gestureTextViewOutlet" destination="UxN-dy-DvO" id="FAd-Xw-fjk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKf-lO-G0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,6 +155,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pir-HC-kn1">
                                         <rect key="frame" x="0.0" y="92" width="334" height="30"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButton:" destination="KJS-2R-1X5" eventType="touchUpInside" id="wb5-NQ-BAy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -159,6 +171,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qqL-cS-Lx6"/>
                     </view>
+                    <connections>
+                        <outlet property="emailAddressOutlet" destination="eEh-4K-Mys" id="EbS-jM-2r3"/>
+                        <outlet property="passOutlet" destination="Qcr-zB-GQP" id="NOi-St-vQG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjz-SM-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OIl-8T-lon">
-                                <rect key="frame" x="20" y="148" width="374" height="150"/>
+                                <rect key="frame" x="20" y="148" width="374" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGl-a4-Tkg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -239,7 +255,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Las Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtt-XQ-MQG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtt-XQ-MQG">
                                         <rect key="frame" x="0.0" y="40" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -257,6 +273,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-yA-Yep">
+                                        <rect key="frame" x="0.0" y="160" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -270,8 +292,19 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="Nj0-8s-3Nn"/>
                     <navigationItem key="navigationItem" title="New Contact" id="4Ie-zq-7Qg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="T9T-pS-VsT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="T9T-pS-VsT">
+                            <connections>
+                                <action selector="saveButton:" destination="Eu9-tB-qv3" id="gqe-xe-2Jh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressTextFieldOutlet" destination="PU5-yA-Yep" id="lZd-Zn-cot"/>
+                        <outlet property="emailTextFieldOutlet" destination="iYZ-XK-EmO" id="SLE-Xu-Yyl"/>
+                        <outlet property="nameTextFieldOutlet" destination="aGl-a4-Tkg" id="gWl-hn-jSe"/>
+                        <outlet property="noteTextFieldOutlet" destination="mtt-XQ-MQG" id="7Bg-Ax-8JZ"/>
+                        <outlet property="phoneNumberTextFieldOutlet" destination="Zdu-KX-o6d" id="aN4-6C-wyh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjx-iQ-mfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

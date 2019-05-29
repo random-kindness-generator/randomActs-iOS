@@ -10,6 +10,13 @@ import UIKit
 
 class ActsOfServiceTableViewController: UITableViewController {
 
+    
+    
+    
+    @IBAction func addNewGestureButton(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

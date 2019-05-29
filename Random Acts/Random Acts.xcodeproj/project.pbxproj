@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E0229DDDF70022D645 /* Contacts.swift */; };
-		9E9730E3229EE3F10022D645 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E2229EE3F10022D645 /* Activity.swift */; };
-		9E9730E6229EE7FC0022D645 /* RandomActsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E5229EE7FC0022D645 /* RandomActsController.swift */; };
-		9E9730E9229EEFD90022D645 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E8229EEFD90022D645 /* User.swift */; };
 		A507D201229DC96700A36AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D200229DC96700A36AFC /* AppDelegate.swift */; };
 		A507D206229DC96700A36AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A507D204229DC96700A36AFC /* Main.storyboard */; };
 		A507D208229DC96B00A36AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A507D207229DC96B00A36AFC /* Assets.xcassets */; };
@@ -20,7 +17,6 @@
 		A507D217229EE25900A36AFC /* RandomizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D216229EE25900A36AFC /* RandomizerViewController.swift */; };
 		A507D219229EE28B00A36AFC /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D218229EE28B00A36AFC /* ContactDetailViewController.swift */; };
 		A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */; };
-		A507D21E229EE5FC00A36AFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D21D229EE5FC00A36AFC /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,13 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				A507D200229DC96700A36AFC /* AppDelegate.swift */,
-				A507D21C229EE43600A36AFC /* View Controllers */,
 				A507D204229DC96700A36AFC /* Main.storyboard */,
+				A507D21C229EE43600A36AFC /* View Controllers */,
 				9E9730E4229EE4000022D645 /* Models */,
+				9E9730E7229EE8060022D645 /* Controller */,
 				A507D207229DC96B00A36AFC /* Assets.xcassets */,
 				A507D209229DC96B00A36AFC /* LaunchScreen.storyboard */,
 				A507D20C229DC96B00A36AFC /* Info.plist */,
-				9E9730E7229EE8060022D645 /* Controller */,
 			);
 			path = "Random Acts";
 			sourceTree = "<group>";
@@ -186,7 +182,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				A507D201229DC96700A36AFC /* AppDelegate.swift in Sources */,
 				A507D213229EE20700A36AFC /* ContactsTableViewController.swift in Sources */,
 				A507D219229EE28B00A36AFC /* ContactDetailViewController.swift in Sources */,
