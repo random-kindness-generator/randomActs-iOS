@@ -17,6 +17,7 @@
 		A507D217229EE25900A36AFC /* RandomizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D216229EE25900A36AFC /* RandomizerViewController.swift */; };
 		A507D219229EE28B00A36AFC /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D218229EE28B00A36AFC /* ContactDetailViewController.swift */; };
 		A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */; };
+		A507D224229F0B5900A36AFC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D223229F0B5900A36AFC /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A507D218229EE28B00A36AFC /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactDetailViewController.swift; path = ../ContactDetailViewController.swift; sourceTree = "<group>"; };
 		A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GestureDetailViewController.swift; path = ../GestureDetailViewController.swift; sourceTree = "<group>"; };
 		A507D21D229EE5FC00A36AFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A507D223229F0B5900A36AFC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9E9730E5229EE7FC0022D645 /* RandomActsController.swift */,
+				A507D223229F0B5900A36AFC /* LoginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				A507D219229EE28B00A36AFC /* ContactDetailViewController.swift in Sources */,
 				A507D217229EE25900A36AFC /* RandomizerViewController.swift in Sources */,
 				A507D215229EE23100A36AFC /* ActsOfServiceTableViewController.swift in Sources */,
+				A507D224229F0B5900A36AFC /* LoginController.swift in Sources */,
 				9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */,
 				A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */,
 			);
