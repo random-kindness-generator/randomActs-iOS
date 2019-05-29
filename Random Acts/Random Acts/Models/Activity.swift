@@ -1,5 +1,5 @@
 //
-//  Bearer.swift
+//  Activity.swift
 //  Random Acts
 //
 //  Created by Diante Lewis-Jolley on 5/29/19.
@@ -10,5 +10,7 @@ import Foundation
 
 struct Activity: Codable {
     
-    let token: String
+    let id: Int
+    let action: String
+    
 }
