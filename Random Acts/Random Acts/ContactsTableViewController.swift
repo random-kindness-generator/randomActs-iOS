@@ -15,7 +15,10 @@ class ContactsTableViewController: UITableViewController {
     
     var contacts: [Contact] = []
     
-
+    @IBAction func addNewContactButton(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

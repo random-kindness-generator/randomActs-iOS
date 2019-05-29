@@ -8,12 +8,38 @@
 
 import UIKit
 
-class ContactDetailViewController: UIViewController {
+class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 
+    var contact: Contact?
+    
+    @IBOutlet weak var nameTextFieldOutlet: UITextField!
+    @IBOutlet weak var lastNameTextFieldOutlet: UITextField!
+    @IBOutlet weak var phoneNumberTextFieldOutlet: UITextField!
+    @IBOutlet weak var emailTextFieldOutlet: UITextField!
+    
+    
+
+    @IBAction func saveButton(_ sender: Any) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func updateView() {
+        
+        if let conatct = self.contact {
+        
+        nameTextFieldOutlet.text = contact?.firstName
+        lastNameTextFieldOutlet.text = contact?.lastName
+//        phoneNumberTextFieldOutlet.text = contact?.phoneNumber
+        emailTextFieldOutlet.text = contact?.emailAddress
+        }
+        
     }
     
 

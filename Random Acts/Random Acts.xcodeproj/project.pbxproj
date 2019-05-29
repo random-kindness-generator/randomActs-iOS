@@ -18,6 +18,7 @@
 		A507D219229EE28B00A36AFC /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D218229EE28B00A36AFC /* ContactDetailViewController.swift */; };
 		A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */; };
 		A507D21E229EE5FC00A36AFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D21D229EE5FC00A36AFC /* LoginViewController.swift */; };
+		A507D221229EF4E400A36AFC /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D220229EF4E400A36AFC /* ContactController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A507D218229EE28B00A36AFC /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactDetailViewController.swift; path = ../ContactDetailViewController.swift; sourceTree = "<group>"; };
 		A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GestureDetailViewController.swift; path = ../GestureDetailViewController.swift; sourceTree = "<group>"; };
 		A507D21D229EE5FC00A36AFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A507D220229EF4E400A36AFC /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				9E9730E0229DDDF70022D645 /* Contacts.swift */,
-				A507D200229DC96700A36AFC /* AppDelegate.swift */,
+				A507D21F229EF49D00A36AFC /* Model Controller */,
 				A507D21C229EE43600A36AFC /* View Controllers */,
+				A507D200229DC96700A36AFC /* AppDelegate.swift */,
 				A507D204229DC96700A36AFC /* Main.storyboard */,
 				A507D207229DC96B00A36AFC /* Assets.xcassets */,
 				A507D209229DC96B00A36AFC /* LaunchScreen.storyboard */,
@@ -88,6 +91,14 @@
 				A507D216229EE25900A36AFC /* RandomizerViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A507D21F229EF49D00A36AFC /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A507D220229EF4E400A36AFC /* ContactController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				A507D215229EE23100A36AFC /* ActsOfServiceTableViewController.swift in Sources */,
 				9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */,
 				A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */,
+				A507D221229EF4E400A36AFC /* ContactController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
