@@ -132,28 +132,35 @@
         <!--Login View Controller-->
         <scene sceneID="jLi-bL-XM9">
             <objects>
-                <viewController id="KJS-2R-1X5" customClass="LoginViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KJS-2R-1X5" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BD5-NR-ZpU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TjB-vv-dig">
-                                <rect key="frame" x="40" y="387" width="334" height="122"/>
+                                <rect key="frame" x="40" y="365" width="334" height="166"/>
                                 <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Lbn-Xg-Qr0">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="29"/>
+                                        <segments>
+                                            <segment title="Register"/>
+                                            <segment title="Login"/>
+                                        </segments>
+                                    </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEh-4K-Mys">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="44" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qcr-zB-GQP">
-                                        <rect key="frame" x="0.0" y="46" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="90" width="334" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pir-HC-kn1">
-                                        <rect key="frame" x="0.0" y="92" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="136" width="334" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="loginButton:" destination="KJS-2R-1X5" eventType="touchUpInside" id="wb5-NQ-BAy"/>
@@ -178,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjz-SM-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2358" y="868"/>
+            <point key="canvasLocation" x="-2359.4202898550725" y="867.85714285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VBF-qa-U02">

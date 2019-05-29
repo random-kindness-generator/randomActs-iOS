@@ -139,7 +139,7 @@ class RandomActsController {
         request.httpMethod = HTTPMethod.get.rawValue
         request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
 
-        URLSession.shared.dataTask(with request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             if let response = response as? HTTPURLResponse,
                 //REMEMBER TO CHANGE STATUS CODE
