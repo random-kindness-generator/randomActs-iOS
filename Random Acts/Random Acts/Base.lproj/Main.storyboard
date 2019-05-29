@@ -13,13 +13,13 @@
         <!--Contacts Table View Controller-->
         <scene sceneID="JKj-Nc-L48">
             <objects>
-                <tableViewController id="3QX-Ng-ETk" userLabel="Contacts Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="3QX-Ng-ETk" userLabel="Contacts Table View Controller" customClass="ContactsTableViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wMu-kP-7Kz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="51" id="2I1-A0-Oqx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" rowHeight="51" id="2I1-A0-Oqx">
                                 <rect key="frame" x="0.0" y="28" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2I1-A0-Oqx" id="ZfN-PB-g5l">
@@ -51,13 +51,13 @@
         <!--Acts of Service-->
         <scene sceneID="g6o-ZU-tmM">
             <objects>
-                <tableViewController id="oWB-2l-hr9" userLabel="Acts of Service" sceneMemberID="viewController">
+                <tableViewController id="oWB-2l-hr9" userLabel="Acts of Service" customClass="ActsOfServiceTableViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IOM-OQ-h9K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="45" id="OCj-UY-TmX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gestureCell" rowHeight="45" id="OCj-UY-TmX">
                                 <rect key="frame" x="0.0" y="28" width="414" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OCj-UY-TmX" id="wps-T1-BEl">
@@ -89,7 +89,7 @@
         <!--New Gestures-->
         <scene sceneID="iTn-3g-7hg">
             <objects>
-                <viewController id="kEp-VL-tSM" sceneMemberID="viewController">
+                <viewController id="kEp-VL-tSM" customClass="GestureDetailViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gh9-7g-ysV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="-143.47826086956522" y="1919.8660714285713"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="jLi-bL-XM9">
             <objects>
-                <viewController id="KJS-2R-1X5" sceneMemberID="viewController">
+                <viewController id="KJS-2R-1X5" customClass="LoginViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BD5-NR-ZpU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +225,7 @@
         <!--New Contact-->
         <scene sceneID="tQZ-o5-mr7">
             <objects>
-                <viewController id="Eu9-tB-qv3" sceneMemberID="viewController">
+                <viewController id="Eu9-tB-qv3" customClass="ContactDetailViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NAs-oH-IDY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,7 +299,7 @@
         <!--Generate Good Will!-->
         <scene sceneID="sX8-KZ-XJC">
             <objects>
-                <viewController id="OY5-Xu-m4Z" sceneMemberID="viewController">
+                <viewController id="OY5-Xu-m4Z" customClass="RandomizerViewController" customModule="Random_Acts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hFX-4t-L4n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
