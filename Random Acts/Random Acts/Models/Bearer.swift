@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Bearer.swift
 //  Random Acts
 //
 //  Created by Diante Lewis-Jolley on 5/29/19.
@@ -8,13 +8,7 @@
 
 import Foundation
 
+struct Bearer: Codable {
 
-struct User: Codable {
-
-   // let id: Int
-    var username: String
-    var password: String
-
-
-
+    let token: String
 }

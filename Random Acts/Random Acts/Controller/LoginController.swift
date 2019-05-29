@@ -13,7 +13,6 @@ enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
-    case get = "GET"
 }
 
 enum NetworkError: Error {
@@ -29,7 +28,7 @@ class RandomActsController {
 
     // MUST FIND BASE URL
     private let baseURL = URL(string: " ")!
-    var bearer: Bearer?
+    var activity: Activity?
 
 
     func register(with user: User, completion: @escaping (Error?) -> Void) {
@@ -113,7 +112,7 @@ class RandomActsController {
             let decoder = JSONDecoder()
 
             do {
-                self.bearer = try decoder.decode(Bearer.self, from: data)
+                self.activity = try decoder.decode(Activity.self, from: data)
 
             } catch {
                 print("Error decoding Activity object: \(error)")
@@ -124,52 +123,6 @@ class RandomActsController {
 
             completion(nil)
         }.resume()
-    }
-
-
-    func fetchGestures(completion: @escaping (Result<[String], NetworkError>) -> Void ) {
-
-        guard let bearer = bearer else {
-            completion(.failure(.noAuth))
-            return }
-
-        let gestureURL = baseURL.appendingPathComponent("actions")
-
-        var request = URLRequest(with: gestureURL)
-        request.httpMethod = HTTPMethod.get.rawValue
-        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with request) { (data, response, error) in
-
-            if let response = response as? HTTPURLResponse,
-                //REMEMBER TO CHANGE STATUS CODE
-                response.statusCode == 100 {
-                completion(.failure(.badAuth))
-                return
-            }
-            if let _ = error {
-                completion(.failure(.otherError))
-                return
-            }
-
-            guard let data = data else {
-                completion(.failure(.badData))
-                return
-            }
-
-            let decoder = JSONDecoder()
-
-            do {
-                let gestures = try decoder.decode(Activity.self, from: data)
-                completion(.success(gestures))
-
-            } catch {
-                NSLog("Error decoding gestures from contact object: \(error)")
-                completion(.failure(.noDecode))
-                return
-            }
-        }.resume()
-
     }
 
 
