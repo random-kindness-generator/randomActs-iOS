@@ -11,10 +11,14 @@ import Foundation
 
 struct Contact: Codable {
 
-    var firstName: String
-    var lastName: String
-    var phoneNumber: Int?
-    var emailAddress: String?
-    var gesture: String
+    var name: String
+    var phone: String?
+    var email: String?
+    var address: String?
+    var group: String?
+    var notes: String?
+    var user_id: Int
+
+
 
 }
