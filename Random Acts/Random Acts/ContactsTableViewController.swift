@@ -14,6 +14,10 @@ class ContactsTableViewController: UITableViewController {
     
     
     var contacts: [Contact] = []
+//    var user: User = User(username: "test", password: "1234")
+    
+    
+    
     
     @IBAction func addNewContactButton(_ sender: Any) {
         
@@ -21,8 +25,23 @@ class ContactsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+            
+        }
+    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if !isUserLoggedIn {
+        performSegue(withIdentifier: "loginView", sender: self)
+        }
+        // Log out button action
+//        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+//        UserDefaults.standard.synchronize()
+//        self.performSegue(withIdentifier: "loginView", sender: self)
     }
+    
 
     // MARK: - Table view data source
 

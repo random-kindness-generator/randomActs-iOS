@@ -11,10 +11,8 @@ import Foundation
 
 struct User: Codable {
 
-   // let id: Int
-    var username: String
-    var password: String
+        let id: Int? = nil
+        let username, password, name, phone: String?
+        let email, address: String?
+    }
 
-
-
-}
