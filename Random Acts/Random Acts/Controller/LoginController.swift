@@ -26,7 +26,7 @@ enum NetworkError: Error {
 class RandomActsController {
     
     // MUST FIND BASE URL
-    private let baseURL = URL(string: " ")!
+    private let baseURL = URL(string: "https://random-acts0519.herokuapp.com/api/")!
     var activity: Activity?
     
     

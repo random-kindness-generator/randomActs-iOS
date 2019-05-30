@@ -17,63 +17,103 @@ class ContactCotroller {
     private let baseURL = URL(string: "https://random-acts0519.herokuapp.com/api/")!
     var contacts: [Contact] = []
     var bearer: Bearer?
+    var userId: Int?
     
-    func login(with user: User, completion: @escaping (Error?) -> Void) {
+    func register(with user: User, completion: @escaping (Error?) -> Void) {
         
-        let loginURL = baseURL.appendingPathComponent("users/login")
+        let parameters = ["username" : user.username, "password" : user.password, "name" : user.name, "phone" : user.phone, "email" : user.email, "address" : user.address]
         
+        let loginURL = baseURL.appendingPathComponent("register")
+        let session = URLSession.shared
         var request = URLRequest(url: loginURL)
         request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let encoder = JSONEncoder()
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         do {
-            let data = try encoder.encode(user)
-            request.httpBody = data
-            
-        } catch {
-            print("Error encoding user for Login")
-            completion(error)
-            return
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
         }
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse,
-                
-                // AGAIN THIS IS THE INCORRECT STATUS CODE/ NEED STATUS CODE TO MATCH
-                response.statusCode != 100 {
-                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-                return
-            }
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
-            if let error = error {
-                completion(error)
+            guard error == nil else {
                 return
             }
             
             guard let data = data else {
-                completion(NSError())
+                return
+            }
+        
+//            let JSONString = String(data: data, encoding: String.Encoding.utf8)
+//            print(JSONString!)
+       
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [Int] {
+                    print(json)
+                    // handle json...
+                    self.userId = json.first
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            completion(error)
+        })
+            task.resume()
+
+    }
+    
+    func login(with user: User, completion: @escaping (Error?) -> Void) {
+        
+        let loginURL = baseURL.appendingPathComponent("login")
+        let parameters = ["username" : user.username, "password" : user.password]
+        var request = URLRequest(url: loginURL)
+        let session = URLSession.shared
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
                 return
             }
             
-            let decoder = JSONDecoder()
+            guard let data = data else {
+                return
+            }
+            let JSONString = String(data: data, encoding: String.Encoding.utf8)
+            print(JSONString!)
             
             do {
-                if let gestures = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(gestures)
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(json)
+                    // handle json...
+                    
                 }
-                
-            } catch {
-                print("Error decoding Activity object: \(error)")
-                completion(error)
-                return
-                
+            } catch let error {
+                print(error.localizedDescription)
             }
             
-            completion(nil)
-            }.resume()
+            
+            completion(error)
+        })
+        task.resume()
+        
     }
+    
+    
     
     
 //    func fetchGestures(completion: @escaping (Result<[String], NetworkError>) -> Void ) {

@@ -8,99 +8,58 @@
 
 import UIKit
 
-enum LoginType {
 
-    case register
-    case login
-}
-
-class LoginViewController: UIViewController {
-
-
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var emailAddressOutlet: UITextField!
+    
+    
+    @IBOutlet weak var usernameOutlet: UITextField!
     @IBOutlet weak var passOutlet: UITextField!
-    // must be connected!!!
-    @IBOutlet weak var loginSegmentedControl: UISegmentedControl!
-    // must be connected !!!
     @IBOutlet weak var registerButton: UIButton!
-
-    var loginController: RandomActController?
-    var loginType = LoginType.register
-
     
-
     @IBAction func loginButton(_ sender: Any) {
-
-        guard let loginController = loginController else { return }
-        if let username = emailAddressOutlet.text, !username.isEmpty,
+        
+        if let username = usernameOutlet.text, !username.isEmpty,
             let password = passOutlet.text, !password.isEmpty {
-            let user = User(username: username, password: password)
-
-            if loginType == .register {
-            loginController.register(with: user) { (error) in
-                    if let error = error {
-                        print("Error occured during sign up: \(error)")
-                    } else {
-                        DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Sign up Successful", message: "Now please log in.", preferredStyle: .alert)
-
-                            let alertAction = UIAlertAction(title: "OK", style: .default , handler: nil)
-
-                            alertController.addAction(alertAction)
-                            self.present(alertController, animated: true, completion: {
-                                self.loginType = .signIn
-                                self.loginSegmentedControl.selectedSegmentIndex = 1
-                                self.signInButton.setTitle("Login", for: .normal)
-                            })
-                        }
-                    }
+            let usernameStored = UserDefaults.standard.string(forKey: "username")
+            let passwordStored = UserDefaults.standard.string(forKey: "password")
+            if username == usernameStored {
+                if password == passwordStored {
+                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                    UserDefaults.standard.synchronize()
+                    self.dismiss(animated: true, completion: nil)
                 }
-            } else {
-                loginController.logIn(with: user) { (error) in
-                    if let error = error {
-                        print("Error occured during sign in: \(error)")
-
-                    } else {
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
+            }
+            let user = User(username: username, password: password, name: "", phone: "", email: "", address: "")
+            ContactCotroller.shared.login(with: user) { (err) in
+                
+                if let error = err {
+                    print(error)
+                    self.displayMyAlertMessage(userMessage: "Login or Password do not match")
+                } else {
+                    
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }
         }
     }
-
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        registerButton.layer.cornerRadius = 8.0
-
-    }
-
-    // Must be connected
-    @IBAction func loginTypeChanged(_ sender: UISegmentedControl) {
-
-        if sender.selectedSegmentIndex == 0 {
-            loginType = .register
-            registerButton.setTitle("Register Now", for: .normal)
-        } else {
-            loginType = .loginType
-            registerButton.setTitle("Login", for: .normal)
-        }
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func displayMyAlertMessage(userMessage:String) {
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: .alert);
+        let okAction = UIAlertAction(title:"Ok", style: .default, handler:nil);
+        myAlert.addAction(okAction);
+        self.present(myAlert, animated:true, completion:nil);
     }
-    */
-
+    
 }
