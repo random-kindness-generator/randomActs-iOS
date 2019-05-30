@@ -18,6 +18,7 @@ class ContactCotroller {
     var contacts: [Contact] = []
     var bearer: Bearer?
     var userId: Int?
+    var pass = "$2a$10$4hAnDiNc4VCEopXIXrxHZu0RARiVfK6/cLMf/I2UJXp5hIDd.FPbq"
     
     func register(with user: User, completion: @escaping (Error?) -> Void) {
         
@@ -66,23 +67,26 @@ class ContactCotroller {
 
     }
     
-    func login(with user: User, completion: @escaping (Error?) -> Void) {
+    func updateUserInfo(with user: User, completion: @escaping (Error?) -> Void) {
         
-        let loginURL = baseURL.appendingPathComponent("login")
-        let parameters = ["username" : user.username, "password" : user.password]
-        var request = URLRequest(url: loginURL)
+        guard let userId = userId else { return }
+        let loginURL = baseURL.appendingPathComponent("users")
+        let parameters = ["id" : "\(userId)", "username" : user.username, "password" : user.password, "name" : user.name, "phone" : user.phone, "email" : user.email, "address" : user.address]
+        //create the session object
         let session = URLSession.shared
-        request.httpMethod = HTTPMethod.post.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        //now create the URLRequest object using the url object
+        var request = URLRequest(url: loginURL)
+        request.httpMethod = "POST" //set http method as POST
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
         } catch let error {
             print(error.localizedDescription)
         }
-        
-        
+
+        //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -92,28 +96,63 @@ class ContactCotroller {
             guard let data = data else {
                 return
             }
-            let JSONString = String(data: data, encoding: String.Encoding.utf8)
-            print(JSONString!)
             
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     print(json)
                     // handle json...
-                    
                 }
             } catch let error {
                 print(error.localizedDescription)
             }
-            
-            
-            completion(error)
         })
         task.resume()
-        
     }
     
     
+    func login(with user: User, completion: @escaping (Error?) -> Void) {
+        
+        let loginURL = baseURL.appendingPathComponent("login")
+        let parameters = ["username" : user.username, "password" : user.password]
+        //create the session object
+        let session = URLSession.shared
+        
+        //now create the URLRequest object using the url object
+        var request = URLRequest(url: loginURL)
+        request.httpMethod = "POST" //set http method as POST
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+       
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        //create dataTask using the session object to send data to the server
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(json)
+                    // handle json...
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
+    }
     
     
 //    func fetchGestures(completion: @escaping (Result<[String], NetworkError>) -> Void ) {

@@ -12,7 +12,8 @@ import Foundation
 struct User: Codable {
 
         let id: Int? = nil
-        let username, password, name, phone: String?
+        let username, password: String
+        let name, phone: String?
         let email, address: String?
     }
 
