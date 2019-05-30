@@ -25,21 +25,24 @@ class ContactsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+
             
         }
     
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-        if !isUserLoggedIn {
+       
+        if LoginController.shared.token == nil {
+          
         performSegue(withIdentifier: "loginView", sender: self)
+        } else {
+            ContactCotroller.shared.fetchContacts(completion: { (contacts) in
+                print(contacts)
+                self.contacts = contacts
+                self.tableView.reloadData()
+            })
         }
-        // Log out button action
-//        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-//        UserDefaults.standard.synchronize()
-//        self.performSegue(withIdentifier: "loginView", sender: self)
     }
     
 

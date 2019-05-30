@@ -22,6 +22,16 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveButton(_ sender: Any) {
         
+        let name = nameTextFieldOutlet.text
+        let notes = noteTextFieldOutlet.text ?? ""
+        let phone = phoneNumberTextFieldOutlet.text ?? ""
+        let email = emailTextFieldOutlet.text ?? ""
+        let address = addressTextFieldOutlet.text ?? ""
+        guard let contactName = name else { return }
+        let contact = Contact(id: nil, name: contactName, phone: phone, email: email, address: address, group: nil, notes: notes, userID: nil)
+        ContactCotroller.shared.cteateUpdateContactInfo(with: contact) { (err) in
+            print("here")
+        }
     }
     
     

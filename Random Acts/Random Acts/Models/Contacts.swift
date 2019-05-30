@@ -28,7 +28,7 @@ import Foundation
 
 // MARK: - Contact
 struct Contact: Codable {
-    let id: Int
+    let id: Int?
     let name: String
     let phone, email, address: String?
     let group, notes: String?

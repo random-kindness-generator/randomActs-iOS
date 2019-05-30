@@ -39,20 +39,35 @@ class RegisterViewController: UIViewController {
             if password != repeatPassword { displayMyAlertMessage(userMessage: "Passwords do not match")}
             let user = User(username: username, password: password, name: nameTextField.text ?? "", phone: phoneNumberTextField.text ?? "", email: emailTextField.text ?? "", address: addressTextField.text ?? "")
             
-                ContactCotroller.shared.register(with: user) { (error) in
-                    if user.username != nil {
+                LoginController.shared.register(with: user) { (bool) in
+                    if bool {
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Sign up Successful", message: "Now please log in.", preferredStyle: .alert)
                             
                             let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-                                UserDefaults.standard.set(username, forKey: "username")
-                                UserDefaults.standard.set(password, forKey: "password")
-                                UserDefaults.standard.synchronize()
+//                                UserDefaults.standard.set(username, forKey: "username")
+//                                UserDefaults.standard.set(password, forKey: "password")
+//                                UserDefaults.standard.synchronize()
                                 self.dismiss(animated: true, completion: nil)
                             })
                             alertController.addAction(alertAction)
                             self.present(alertController, animated: true, completion: {
                             
+                            })
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Sign up Unsuccessful", message: "Please try diferent login", preferredStyle: .alert)
+                            
+                            let alertAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                                //                                UserDefaults.standard.set(username, forKey: "username")
+                                //                                UserDefaults.standard.set(password, forKey: "password")
+                                //                                UserDefaults.standard.synchronize()
+                                self.dismiss(animated: true, completion: nil)
+                            })
+                            alertController.addAction(alertAction)
+                            self.present(alertController, animated: true, completion: {
+                                
                             })
                         }
                     }
