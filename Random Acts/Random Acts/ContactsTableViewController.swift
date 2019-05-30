@@ -14,6 +14,10 @@ class ContactsTableViewController: UITableViewController {
     
     
     var contacts: [Contact] = []
+    var user: User = User(username: "test", password: "1234")
+        
+    
+    
     
     @IBAction func addNewContactButton(_ sender: Any) {
         
@@ -21,8 +25,14 @@ class ContactsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
+        ContactCotroller.shared.login(with: user) { (err) in
+            
+        }
+            
+        }
+        
+        
+    
 
     // MARK: - Table view data source
 

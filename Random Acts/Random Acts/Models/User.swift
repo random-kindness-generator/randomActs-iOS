@@ -10,11 +10,11 @@ import Foundation
 
 
 struct User: Codable {
-
-   // let id: Int
+    
+    // let id: Int
     var username: String
     var password: String
-
-
-
+    
+    
+    
 }
