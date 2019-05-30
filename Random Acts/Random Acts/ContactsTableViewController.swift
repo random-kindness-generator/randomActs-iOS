@@ -25,6 +25,8 @@ class ContactsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupAppearance()
        
             
         }
@@ -57,7 +59,27 @@ class ContactsTableViewController: UITableViewController {
 
         cell.textLabel?.text = contacts[indexPath.row].name
 
+        style(cell: cell)
+
         return cell
+    }
+
+
+    private func style(cell: UITableViewCell) {
+        cell.textLabel?.backgroundColor = .clear
+        cell.detailTextLabel?.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
+        cell.detailTextLabel?.textColor = .white
+        cell.backgroundColor = ThemeHelper.customBlue
+
+        cell.layer.cornerRadius = 8.0
+    }
+
+    private func setupAppearance() {
+
+        view.backgroundColor = ThemeHelper.customBlue
+        tableView.backgroundColor = ThemeHelper.customBlue
+        tableView.tableHeaderView?.backgroundColor = ThemeHelper.customBlue
     }
 
     /*

@@ -25,9 +25,9 @@ enum NetworkError: Error {
 
 class RandomActsController {
     
-    // MUST FIND BASE URL
+
     private let baseURL = URL(string: "https://random-acts0519.herokuapp.com/api/")!
-    var activity: Activity?
+    var bearer: Bearer?
     
     
     func register(with user: User, completion: @escaping (Error?) -> Void) {
@@ -111,10 +111,10 @@ class RandomActsController {
             let decoder = JSONDecoder()
             
             do {
-                self.activity = try decoder.decode(Activity.self, from: data)
+                self.bearer = try decoder.decode(Bearer.self, from: data)
                 
             } catch {
-                print("Error decoding Activity object: \(error)")
+                print("Error decoding Bearer object: \(error)")
                 completion(error)
                 return
                 

@@ -66,7 +66,14 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = ThemeHelper.customBlue
+        ThemeHelper.textFieldStyle(for: nameTextField)
+        ThemeHelper.textFieldStyle(for: emailTextField)
+        ThemeHelper.textFieldStyle(for: loginTextField)
+        ThemeHelper.textFieldStyle(for: passwordTextField)
+        ThemeHelper.textFieldStyle(for: repeatPasswordTextField)
+        ThemeHelper.textFieldStyle(for: addressTextField)
+        ThemeHelper.textFieldStyle(for: phoneNumberTextField)
     }
     
     func displayMyAlertMessage(userMessage:String) {
