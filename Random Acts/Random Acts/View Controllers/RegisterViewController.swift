@@ -24,8 +24,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
- 
-    
+    @IBOutlet weak var registeredButton: UIButton!
+
 
     @IBAction func dismissButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -66,7 +66,13 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = ThemeHelper.customBlue
+
+        setupAppearance()
+
+    }
+
+    private func setupAppearance() {
+
         ThemeHelper.textFieldStyle(for: nameTextField)
         ThemeHelper.textFieldStyle(for: emailTextField)
         ThemeHelper.textFieldStyle(for: loginTextField)
@@ -74,6 +80,13 @@ class RegisterViewController: UIViewController {
         ThemeHelper.textFieldStyle(for: repeatPasswordTextField)
         ThemeHelper.textFieldStyle(for: addressTextField)
         ThemeHelper.textFieldStyle(for: phoneNumberTextField)
+        ThemeHelper.buttonStyle(for: registeredButton)
+
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat,.autoreverse], animations: {
+            self.view.backgroundColor = ThemeHelper.customBlue
+            self.view.backgroundColor = ThemeHelper.customGold
+        }, completion: nil)
+
     }
     
     func displayMyAlertMessage(userMessage:String) {

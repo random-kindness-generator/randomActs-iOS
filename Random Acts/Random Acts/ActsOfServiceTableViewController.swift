@@ -47,6 +47,7 @@ class ActsOfServiceTableViewController: UITableViewController {
         cell.layer.cornerRadius = 8.0
         cell.textLabel?.backgroundColor = .clear
         cell.detailTextLabel?.backgroundColor = .clear
+        cell.layer.cornerRadius = 8.0
 
         cell.backgroundColor = ThemeHelper.customBlue
 

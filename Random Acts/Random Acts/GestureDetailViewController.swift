@@ -20,7 +20,10 @@ class GestureDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        view.backgroundColor = ThemeHelper.customGold
+        gestureTextViewOutlet.layer.cornerRadius = 10.0
+        gestureTextViewOutlet.backgroundColor = .clear
+        gestureTextViewOutlet.textColor = .white
         
         // Do any additional setup after loading the view.
     }

@@ -10,21 +10,42 @@ import UIKit
 
 class RandomizerViewController: UIViewController {
 
+    @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var goodWillButton: UIButton!
+    @IBOutlet weak var gestureTextView: UITextView!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        changeTitleImage()
+        view.backgroundColor = ThemeHelper.customPink
+        contactNameLabel.text = " "
+        goodWillButton.layer.cornerRadius = 8.0
+        gestureTextView.layer.cornerRadius = 8.0
+        goodWillButton.backgroundColor = .clear
+
+
+
     }
+
+    private func changeTitleImage() {
+
+        let logo = UIImage(named: "heartLogo")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+
+
+    }
+
+
+    @IBAction func goodWillButtonTapped(_ sender: Any) {
+
+
+    }
+
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

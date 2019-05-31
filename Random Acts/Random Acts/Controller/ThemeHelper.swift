@@ -12,14 +12,19 @@ import UIKit
 
 enum ThemeHelper {
 
-    static let customBlue = UIColor(displayP3Red: 172/255, green: 206/255, blue: 233/255, alpha: 0.08)
+    static let customBlue = UIColor(displayP3Red: 149/255, green: 214/255, blue: 226/255, alpha: 1.0)
 
     static let customYellow = UIColor(displayP3Red: 209/255, green: 166/255, blue: 57/255, alpha: 1.0)
+
+    static let customGold = UIColor(displayP3Red: 244/255, green: 232/255, blue: 66/255, alpha: 1.0)
+
+    static let customPink = UIColor(displayP3Red: 247/255, green: 200/255, blue: 241/255, alpha: 1.0)
 
     static func setupAppearance() {
 
         UINavigationBar.appearance().barTintColor = customBlue
         UIBarButtonItem.appearance().tintColor = .white
+        
         
         
 
