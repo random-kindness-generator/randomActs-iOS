@@ -102,7 +102,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UxN-dy-DvO">
                                 <rect key="frame" x="20" y="148" width="374" height="625"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -277,6 +276,7 @@
                         <outlet property="nameTextField" destination="nFc-9r-LTw" id="tKd-sa-Zz3"/>
                         <outlet property="passwordTextField" destination="7hB-S8-e7M" id="yrb-v9-kDX"/>
                         <outlet property="phoneNumberTextField" destination="Qo9-hn-Mrt" id="bZh-sa-lya"/>
+                        <outlet property="registeredButton" destination="asY-PQ-WGk" id="izY-vg-B0u"/>
                         <outlet property="repeatPasswordTextField" destination="Jhn-By-RZx" id="V4h-Yb-o2G"/>
                     </connections>
                 </viewController>
@@ -299,7 +299,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="highlightedColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu4-aA-QdT">
                                         <rect key="frame" x="0.0" y="41.5" width="374" height="20.5"/>
@@ -364,7 +364,12 @@
                         <viewLayoutGuide key="safeArea" id="qqL-cS-Lx6"/>
                     </view>
                     <connections>
+                        <outlet property="emailLabel" destination="Eu4-aA-QdT" id="UFr-7X-C0M"/>
+                        <outlet property="loggedInButton" destination="iXj-wJ-YmC" id="1LF-bw-M3O"/>
+                        <outlet property="loginLabel" destination="abb-Uk-19R" id="sOI-De-axx"/>
+                        <outlet property="orLabel" destination="Vyp-or-SGB" id="Qvl-4j-yHA"/>
                         <outlet property="passOutlet" destination="Cpo-Bc-w9r" id="OAx-nK-W1a"/>
+                        <outlet property="passwordLabel" destination="3t3-Rs-WS4" id="BP4-jK-do1"/>
                         <outlet property="registerButton" destination="1Mo-io-NXR" id="bfw-au-5Fl"/>
                         <outlet property="usernameOutlet" destination="pqj-tk-c2a" id="FeX-ln-i1a"/>
                     </connections>
@@ -542,7 +547,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oXE-LF-7ub">
                                         <rect key="frame" x="0.0" y="60.5" width="374" height="409.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -552,6 +556,9 @@
                                             <constraint firstAttribute="height" constant="50" id="2qx-3H-mSZ"/>
                                         </constraints>
                                         <state key="normal" title="Good Will of Fortune"/>
+                                        <connections>
+                                            <action selector="goodWillButtonTapped:" destination="OY5-Xu-m4Z" eventType="touchUpInside" id="d7P-4d-pRk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -567,6 +574,11 @@
                         <viewLayoutGuide key="safeArea" id="kFb-0J-8gl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Generate Good Will!" id="bkd-zw-sjp"/>
+                    <connections>
+                        <outlet property="contactNameLabel" destination="wOH-VL-gGf" id="eFZ-vB-tsC"/>
+                        <outlet property="gestureTextView" destination="oXE-LF-7ub" id="lwl-55-aeT"/>
+                        <outlet property="goodWillButton" destination="Yi8-F6-yRP" id="FC3-b1-VID"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJF-O0-y28" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
