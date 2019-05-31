@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        animateBackgroundColor()
+        //animateBackgroundColor()
     }
 
     private func setupAppearance() {
