@@ -14,7 +14,7 @@ enum LoginType {
     case login
 }
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -80,11 +80,35 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+        repeatPasswordTextField.delegate = self
+        addressTextField.delegate = self
+        phoneNumberTextField.delegate = self
 
         setupAppearance()
 
     }
+    
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        nameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        addressTextField.resignFirstResponder()
+        phoneNumberTextField.resignFirstResponder()
+        registeredButton.resignFirstResponder()
+        repeatPasswordTextField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 
     private func setupAppearance() {
 

@@ -57,7 +57,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        usernameOutlet.delegate = self
+        passOutlet.delegate = self
         setupAppearance()
         view.backgroundColor = ThemeHelper.customBlue
 
@@ -67,7 +68,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        animateBackgroundColor()
+//        animateBackgroundColor()
+    }
+    
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameOutlet.resignFirstResponder()
+        passOutlet.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     private func setupAppearance() {

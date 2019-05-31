@@ -38,7 +38,6 @@ class ContactsTableViewController: UITableViewController {
         performSegue(withIdentifier: "loginView", sender: self)
         } else {
             ContactCotroller.shared.fetchContacts(completion: { (contacts) in
-                print(contacts)
                 self.contacts = contacts
                 self.tableView.reloadData()
             })
@@ -58,8 +57,10 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
 
-        cell.textLabel?.text = contacts[indexPath.row].name
-
+        cell.textLabel?.text = "\(contacts[indexPath.row].name)"
+//        if let email = contacts[indexPath.row].email {
+//        cell.detailTextLabel?.text = "\(email)"
+//        }
         return cell
     }
 
@@ -73,14 +74,17 @@ class ContactsTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-  
+  */
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       if segue.identifier == "editContact" {
+            let destination = segue.destination as! ContactDetailViewController
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        destination.contact = self.contacts[indexPath.row]
+        }
     }
-    */
+    
 
 }

@@ -28,10 +28,19 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
         let email = emailTextFieldOutlet.text ?? ""
         let address = addressTextFieldOutlet.text ?? ""
         guard let contactName = name else { return }
-        let contact = Contact(id: nil, name: contactName, phone: phone, email: email, address: address, group: nil, notes: notes, userID: nil)
-        ContactCotroller.shared.cteateUpdateContactInfo(with: contact) { (err) in
-            print("here")
+        if let person = self.contact {
+            let contact = Contact(id: person.id, name: contactName, phone: phone, email: email, address: address, group: "test", notes: notes, user_id: nil)
+            ContactCotroller.shared.updateContactInfo(with: contact) { (error) in
+               
+            }
+            navigationController?.popViewController(animated: true)
+        } else {
+        let contact = Contact(id: nil, name: contactName, phone: phone, email: email, address: address, group: "test", notes: notes, user_id: nil)
+            ContactCotroller.shared.cteateContactInfo(with: contact) { (err) in
+            }
+            navigationController?.popViewController(animated: true)
         }
+       
     }
     
     

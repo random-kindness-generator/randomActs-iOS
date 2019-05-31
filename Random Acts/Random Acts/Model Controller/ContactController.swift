@@ -69,7 +69,7 @@ class ContactCotroller {
         if let token = self.token {
         request.httpMethod = httpMethod
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
+//        request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(token, forHTTPHeaderField: "Authorization")
         return request
         }
@@ -108,11 +108,16 @@ class ContactCotroller {
             print(JSONString!)
             
             do {
-              if let contacts = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [Contact] {
-                    print(contacts)
-                self.contacts = contacts
-                completion(contacts)
-                }
+                
+                let jsonDecoder = JSONDecoder()
+                let decodedTeam = try jsonDecoder.decode([Contact].self, from: data)
+//                print(decodedTeam)
+                
+//                if let contacts = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [Contact] {
+//                    print(contacts)
+                self.contacts = decodedTeam
+                completion(decodedTeam)
+                
             } catch {
                 NSLog("Error decoding gestures from contact object: \(error)")
                 
@@ -122,12 +127,16 @@ class ContactCotroller {
         
     }
     
-    func cteateUpdateContactInfo(with contact: Contact, completion: @escaping (Error?) -> Void) {
+    func cteateContactInfo(with contact: Contact, completion: @escaping (Error?) -> Void) {
         
         guard let userId = self.userId else { return }
         
+      
+        let parameters = ["name" : contact.name, "address" : contact.address!, "group" : "", "notes" : contact.notes!, "phone" : contact.phone!, "email" : contact.email!, "user_id" : userId] as [String : Any]
+        
+        
         let loginURL = baseURL.appendingPathComponent("contacts")
-        let parameters = ["name" : contact.name, "address" : contact.address!, "group" : "test", "notes" : contact.notes!, "phone" : contact.phone!, "email" : contact.email!, "user_id" : userId] as [String : Any]
+        
         //create the session object
         let session = URLSession.shared
         var request = createRequest(url: loginURL, httpMethod: "POST")
@@ -140,6 +149,35 @@ class ContactCotroller {
         
         //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+ 
+        })
+        task.resume()
+    }
+    
+    func updateContactInfo(with contact: Contact, completion: @escaping (Error?) -> Void) {
+        
+        guard let userId = self.userId else { return }
+        guard let id  = contact.id else { return }
+        
+        let parameters = ["name" : contact.name, "address" : contact.address!, "group" : contact.group!, "notes" : contact.notes!, "phone" : contact.phone!, "email" : contact.email!, "user_id" : userId] as [String : Any]
+        
+        
+        let loginURL = baseURL.appendingPathComponent("contacts").appendingPathComponent("\(id)")
+        //create the session object
+        let session = URLSession.shared
+        var request = createRequest(url: loginURL, httpMethod: "PUT")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        //create dataTask using the session object to send data to the server
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
                 return
@@ -148,19 +186,15 @@ class ContactCotroller {
             guard let data = data else {
                 return
             }
-            let JSONString = String(data: data, encoding: String.Encoding.utf8)
-            print(JSONString!)
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
-                    // handle json...
-                }
-            } catch let error {
-                print(error.localizedDescription)
+            
+            if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+                print(JSONString)
             }
+            
+            
         })
         task.resume()
+        
     }
     
 }
