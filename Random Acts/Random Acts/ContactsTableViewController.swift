@@ -26,22 +26,22 @@ class ContactsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupAppearance()
-       
             
         }
     
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-        if !isUserLoggedIn {
+       
+        if LoginController.shared.token == nil {
+          
         performSegue(withIdentifier: "loginView", sender: self)
+        } else {
+            ContactCotroller.shared.fetchContacts(completion: { (contacts) in
+                self.contacts = contacts
+                self.tableView.reloadData()
+            })
         }
-        // Log out button action
-//        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-//        UserDefaults.standard.synchronize()
-//        self.performSegue(withIdentifier: "loginView", sender: self)
     }
     
 
@@ -57,29 +57,11 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
 
-        cell.textLabel?.text = contacts[indexPath.row].name
-
-        style(cell: cell)
-
+        cell.textLabel?.text = "\(contacts[indexPath.row].name)"
+//        if let email = contacts[indexPath.row].email {
+//        cell.detailTextLabel?.text = "\(email)"
+//        }
         return cell
-    }
-
-
-    private func style(cell: UITableViewCell) {
-        cell.textLabel?.backgroundColor = .clear
-        cell.detailTextLabel?.backgroundColor = .clear
-        cell.textLabel?.textColor = .white
-        cell.detailTextLabel?.textColor = .white
-        cell.backgroundColor = ThemeHelper.customBlue
-
-        cell.layer.cornerRadius = 8.0
-    }
-
-    private func setupAppearance() {
-
-        view.backgroundColor = ThemeHelper.customBlue
-        tableView.backgroundColor = ThemeHelper.customBlue
-        tableView.tableHeaderView?.backgroundColor = ThemeHelper.customBlue
     }
 
     /*
@@ -92,14 +74,17 @@ class ContactsTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-  
+  */
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       if segue.identifier == "editContact" {
+            let destination = segue.destination as! ContactDetailViewController
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        destination.contact = self.contacts[indexPath.row]
+        }
     }
-    */
+    
 
 }

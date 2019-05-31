@@ -28,15 +28,15 @@ import Foundation
 
 // MARK: - Contact
 struct Contact: Codable {
-    let id: Int
+    let id: Int?
     let name: String
-    let phone, email, address: String?
-    let group, notes: String?
-    let userID: Int?
+    let phone: String?
+    let email: String?
+    let address: String?
+    let group: String?
+    let notes: String?
+    let user_id: Int?
     
-    enum CodingKeys: String, CodingKey {
-        case id, name, phone, email, address, group, notes
-        case userID = "user_id"
-    }
+    
 }
 
