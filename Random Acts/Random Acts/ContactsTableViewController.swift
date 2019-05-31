@@ -14,25 +14,17 @@ class ContactsTableViewController: UITableViewController {
     
     
     var contacts: [Contact] = []
-//    var user: User = User(username: "test", password: "1234")
-    
-    
-    
     
     @IBAction func addNewContactButton(_ sender: Any) {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-            
-        }
+  
     
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+       tableView.reloadData()
         if LoginController.shared.token == nil {
           
         performSegue(withIdentifier: "loginView", sender: self)

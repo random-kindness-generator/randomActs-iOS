@@ -54,7 +54,7 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
     func updateView() {
         
         if let person = self.contact {
-            
+            title = person.name
             nameTextFieldOutlet.text = person.name
             noteTextFieldOutlet.text = person.notes
             phoneNumberTextFieldOutlet.text = person.phone
