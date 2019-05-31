@@ -156,10 +156,9 @@ class ContactCotroller {
     
     func updateContactInfo(with contact: Contact, completion: @escaping (Error?) -> Void) {
         
-        guard let userId = self.userId else { return }
         guard let id  = contact.id else { return }
         
-        let parameters = ["name" : contact.name, "address" : contact.address!, "group" : contact.group!, "notes" : contact.notes!, "phone" : contact.phone!, "email" : contact.email!, "user_id" : userId] as [String : Any]
+        let parameters = ["name" : contact.name, "address" : contact.address!, "group" : contact.group!, "notes" : contact.notes!, "phone" : contact.phone!, "email" : contact.email!] as [String : Any]
         
         
         let loginURL = baseURL.appendingPathComponent("contacts").appendingPathComponent("\(id)")
@@ -172,10 +171,7 @@ class ContactCotroller {
         } catch let error {
             print(error.localizedDescription)
         }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
+      
         //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
@@ -197,4 +193,31 @@ class ContactCotroller {
         
     }
     
+    func deleteContacts(with contact: Contact, completion: @escaping (Bool) -> Void ) {
+        
+        guard let id = contact.id else { return }
+        
+        let gestureURL = baseURL.appendingPathComponent("contacts").appendingPathComponent("\(id)")
+        
+        let request = createRequest(url: gestureURL, httpMethod: "DELETE")
+        
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            let JSONString = String(data: data, encoding: String.Encoding.utf8)
+            print(JSONString!)
+          
+            }.resume()
+        
+    }
 }
