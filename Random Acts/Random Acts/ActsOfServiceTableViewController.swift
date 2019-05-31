@@ -20,16 +20,19 @@ class ActsOfServiceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = ThemeHelper.customBlue
-        
+//        view.backgroundColor = ThemeHelper.customBlue
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ActionController.shared.fetchActions { (actions) in
             self.actions = actions
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -46,22 +49,13 @@ class ActsOfServiceTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.textLabel?.text = actions[indexPath.row].action
-        style(cell: cell)
+        
+        
         
         return cell
     }
 
-    private func style(cell: UITableViewCell) {
 
-        cell.layer.cornerRadius = 8.0
-        cell.textLabel?.backgroundColor = .clear
-        cell.detailTextLabel?.backgroundColor = .clear
-        cell.layer.cornerRadius = 8.0
-
-        cell.backgroundColor = ThemeHelper.customBlue
-
-
-    }
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

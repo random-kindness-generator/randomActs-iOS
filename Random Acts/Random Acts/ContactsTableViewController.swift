@@ -31,7 +31,9 @@ class ContactsTableViewController: UITableViewController {
         } else {
             ContactCotroller.shared.fetchContacts(completion: { (contacts) in
                 self.contacts = contacts
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             })
         }
     }
@@ -50,9 +52,8 @@ class ContactsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
 
         cell.textLabel?.text = "\(contacts[indexPath.row].name)"
-//        if let email = contacts[indexPath.row].email {
-//        cell.detailTextLabel?.text = "\(email)"
-//        }
+        cell.layer.cornerRadius = 8.0
+
         return cell
     }
 
@@ -65,7 +66,7 @@ class ContactsTableViewController: UITableViewController {
                 
             }
             contacts.remove(at: indexPath.row)
-            // Delete the row from the data source
+
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             

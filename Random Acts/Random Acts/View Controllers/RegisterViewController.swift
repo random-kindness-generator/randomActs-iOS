@@ -121,10 +121,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         ThemeHelper.textFieldStyle(for: phoneNumberTextField)
         ThemeHelper.buttonStyle(for: registeredButton)
 
-        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat,.autoreverse], animations: {
-            self.view.backgroundColor = ThemeHelper.customBlue
-            self.view.backgroundColor = ThemeHelper.customGold
-        }, completion: nil)
+     view.backgroundColor = ThemeHelper.customBlue
 
     }
     

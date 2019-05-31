@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameOutlet.delegate = self
         passOutlet.delegate = self
         setupAppearance()
-        view.backgroundColor = ThemeHelper.customBlue
+        
 
 
     }
@@ -88,7 +88,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passOutlet.layer.cornerRadius = 8.0
         usernameOutlet.layer.cornerRadius = 8.0
         view.backgroundColor = ThemeHelper.customBlue
-        loginLabel.textColor = .white
+        
         emailLabel.textColor = .white
         passwordLabel.textColor = .white
         orLabel.textColor = .white
@@ -96,16 +96,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
 
-    private func animateBackgroundColor() {
-        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat,.autoreverse], animations: {
-            self.view.backgroundColor = ThemeHelper.customBlue
-            self.view.backgroundColor = ThemeHelper.customGold
-        }, completion: nil)
 
 
-    }
-    
-    
     func displayMyAlertMessage(userMessage:String) {
         let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: .alert);
         let okAction = UIAlertAction(title:"Ok", style: .default, handler:nil);
