@@ -27,26 +27,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if let username = usernameOutlet.text, !username.isEmpty,
             let password = passOutlet.text, !password.isEmpty {
-            let usernameStored = UserDefaults.standard.string(forKey: "username")
-            let passwordStored = UserDefaults.standard.string(forKey: "password")
-            if username == usernameStored {
-                if password == passwordStored {
-                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                    UserDefaults.standard.synchronize()
-                    self.dismiss(animated: true, completion: nil)
-                }
-            }
+//            let usernameStored = UserDefaults.standard.string(forKey: "username")
+//            let passwordStored = UserDefaults.standard.string(forKey: "password")
+//            if username == usernameStored {
+//                if password == passwordStored {
+//                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+//                    UserDefaults.standard.synchronize()
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            }
             let user = User(username: username, password: password, name: "", phone: "", email: "", address: "")
-            ContactCotroller.shared.login(with: user) { (err) in
+            LoginController.shared.login(with: user) { (token) in
                 
-                if let error = err {
-                    print(error)
-                    self.displayMyAlertMessage(userMessage: "Login or Password do not match")
-                } else {
-                    
+                if token != nil {
+                    ContactCotroller.shared.fetchContacts(completion: { (contacts) in
+                        print(contacts)
+                    })
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
+                } else {
+                    self.displayMyAlertMessage(userMessage: "Login or Password do not match")
                 }
             }
         }
@@ -56,7 +57,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        usernameOutlet.delegate = self
+        passOutlet.delegate = self
         setupAppearance()
         view.backgroundColor = ThemeHelper.customBlue
 
@@ -66,7 +68,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        //animateBackgroundColor()
+//        animateBackgroundColor()
+    }
+    
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameOutlet.resignFirstResponder()
+        passOutlet.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     private func setupAppearance() {
