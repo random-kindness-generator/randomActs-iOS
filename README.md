@@ -17,3 +17,11 @@ People want to do good and serve others, but it's just so hard to remember to do
 4. Randomly generate a pair of one of your contacts with a "good will gesture", making it easy to serve
 
 ## Technology Used:
+
+- Custom URLSession
+- JSONSerialization
+- Codable
+- UITableView
+- UIView and Navigation Controller
+- UITextFieldDelegate
+- UIAlertController
