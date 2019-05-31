@@ -30,12 +30,10 @@ class GestureDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+             title = "Gestures"
         view.backgroundColor = ThemeHelper.customBlue
         gestureTextViewOutlet.layer.cornerRadius = 10.0
-        gestureTextViewOutlet.backgroundColor = .clear
-        gestureTextViewOutlet.textColor = .white
-        title = "Gestures"
+
         if let gesture = self.action {
             gestureTextViewOutlet.text = gesture.action
         } else {

@@ -20,45 +20,41 @@ class RandomizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        changeTitleImage()
+        self.changeButtonImage()
         view.backgroundColor = ThemeHelper.customPink
         contactNameLabel.text = " "
-        goodWillButton.layer.cornerRadius = 8.0
+        goodWillButton.layer.cornerRadius = 20.0
         gestureTextView.layer.cornerRadius = 8.0
-        goodWillButton.backgroundColor = .clear
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        ContactCotroller.shared.fetchContacts { (contacts) in
-            self.contacts = contacts
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            ContactCotroller.shared.fetchContacts { (contacts) in
+                self.contacts = contacts
+            }
+            ActionController.shared.fetchActions { (actions) in
+                self.actions = actions
+            }
         }
-        ActionController.shared.fetchActions { (actions) in
-            self.actions = actions
+
+         func changeButtonImage() {
+
+            let logo = UIImage(named: "heartLogo")
+            self.goodWillButton.setImage(logo, for: .normal)
+
+
         }
-    }
-
-    private func changeTitleImage() {
-
-        let logo = UIImage(named: "heartLogo")
-        let imageView = UIImageView(image: logo)
-        self.navigationItem.titleView = imageView
 
 
-    }
+        @IBAction func goodWillButtonTapped(_ sender: Any) {
+
+            let index = Int(arc4random_uniform(UInt32(contacts.count)))
+            contactNameLabel.text = contacts[index].name
+
+            let actionIndex = Int(arc4random_uniform(UInt32(actions.count)))
+            gestureTextView.text = actions[actionIndex].action
+        }
 
 
-    @IBAction func goodWillButtonTapped(_ sender: Any) {
-        
-        let index = Int(arc4random_uniform(UInt32(contacts.count)))
-        contactNameLabel.text = contacts[index].name
-        
-        let actionIndex = Int(arc4random_uniform(UInt32(actions.count)))
-        gestureTextView.text = actions[actionIndex].action
-    }
-
-    
 
 
 
