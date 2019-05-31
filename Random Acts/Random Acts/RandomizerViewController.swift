@@ -18,22 +18,21 @@ class RandomizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        changeTitleImage()
+        changeButtonImage()
         view.backgroundColor = ThemeHelper.customPink
         contactNameLabel.text = " "
-        goodWillButton.layer.cornerRadius = 8.0
+        goodWillButton.layer.cornerRadius = 20.0
         gestureTextView.layer.cornerRadius = 8.0
-        goodWillButton.backgroundColor = .clear
+        
 
 
 
     }
 
-    private func changeTitleImage() {
+    private func changeButtonImage() {
 
         let logo = UIImage(named: "heartLogo")
-        let imageView = UIImageView(image: logo)
-        self.navigationItem.titleView = imageView
+        goodWillButton.setImage(logo, for: .normal)
 
 
     }

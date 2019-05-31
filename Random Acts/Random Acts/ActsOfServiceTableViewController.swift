@@ -46,22 +46,13 @@ class ActsOfServiceTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.textLabel?.text = actions[indexPath.row].action
-        style(cell: cell)
+        cell.layer.cornerRadius = 8.0
+        
         
         return cell
     }
 
-    private func style(cell: UITableViewCell) {
 
-        cell.layer.cornerRadius = 8.0
-        cell.textLabel?.backgroundColor = .clear
-        cell.detailTextLabel?.backgroundColor = .clear
-        cell.layer.cornerRadius = 8.0
-
-        cell.backgroundColor = ThemeHelper.customBlue
-
-
-    }
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

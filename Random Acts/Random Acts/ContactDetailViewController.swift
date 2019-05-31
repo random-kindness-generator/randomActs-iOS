@@ -13,7 +13,7 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
     var contact: Contact?
     
     @IBOutlet weak var nameTextFieldOutlet: UITextField!
-    @IBOutlet weak var noteTextFieldOutlet: UITextField!
+    @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var phoneNumberTextFieldOutlet: UITextField!
     @IBOutlet weak var emailTextFieldOutlet: UITextField!
     @IBOutlet weak var addressTextFieldOutlet: UITextField!
@@ -23,7 +23,7 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveButton(_ sender: Any) {
         
         let name = nameTextFieldOutlet.text
-        let notes = noteTextFieldOutlet.text ?? ""
+        let notes = noteTextView.text ?? ""
         let phone = phoneNumberTextFieldOutlet.text ?? ""
         let email = emailTextFieldOutlet.text ?? ""
         let address = addressTextFieldOutlet.text ?? ""
@@ -49,6 +49,11 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
        updateView()
 
         view.backgroundColor = ThemeHelper.customBlue
+        ThemeHelper.textFieldStyle(for: nameTextFieldOutlet)
+        ThemeHelper.textFieldStyle(for: phoneNumberTextFieldOutlet)
+        ThemeHelper.textFieldStyle(for: emailTextFieldOutlet)
+        ThemeHelper.textFieldStyle(for: addressTextFieldOutlet)
+        noteTextView.layer.cornerRadius = 8.0
     }
     
     func updateView() {
@@ -56,14 +61,14 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
         if let person = self.contact {
             
             nameTextFieldOutlet.text = person.name
-            noteTextFieldOutlet.text = person.notes
+            noteTextView.text = person.notes
             phoneNumberTextFieldOutlet.text = person.phone
             emailTextFieldOutlet.text = person.email
             addressTextFieldOutlet.text = person.address
         }
         else {
             nameTextFieldOutlet.text = ""
-            noteTextFieldOutlet.text = ""
+            noteTextView.text = ""
             phoneNumberTextFieldOutlet.text = ""
             emailTextFieldOutlet.text = ""
             addressTextFieldOutlet.text = ""
