@@ -28,6 +28,8 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        updateView()
+
+        view.backgroundColor = ThemeHelper.customBlue
     }
     
     func updateView() {

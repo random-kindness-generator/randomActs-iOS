@@ -12,10 +12,16 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
-    
+    @IBOutlet weak var passwordLabel: UILabel!
+
+    @IBOutlet weak var orLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var loggedInButton: UIButton!
     @IBOutlet weak var usernameOutlet: UITextField!
     @IBOutlet weak var passOutlet: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+
     
     @IBAction func loginButton(_ sender: Any) {
         
@@ -50,8 +56,41 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+        setupAppearance()
+        view.backgroundColor = ThemeHelper.customBlue
+
+
+    }
+
+  override  func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        animateBackgroundColor()
+    }
+
+    private func setupAppearance() {
+
+        ThemeHelper.buttonStyle(for: registerButton)
+        ThemeHelper.buttonStyle(for: loggedInButton)
+        passOutlet.layer.cornerRadius = 8.0
+        usernameOutlet.layer.cornerRadius = 8.0
+        view.backgroundColor = ThemeHelper.customBlue
+        loginLabel.textColor = .white
+        emailLabel.textColor = .white
+        passwordLabel.textColor = .white
+        orLabel.textColor = .white
+
+    }
+
+
+    private func animateBackgroundColor() {
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat,.autoreverse], animations: {
+            self.view.backgroundColor = ThemeHelper.customBlue
+            self.view.backgroundColor = ThemeHelper.customGold
+        }, completion: nil)
+
+
     }
     
     
