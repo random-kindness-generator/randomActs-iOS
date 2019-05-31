@@ -153,11 +153,13 @@ func login(with user: User, completion: @escaping (String?) -> Void) {
                 print(json)
                 if let token = json["token"] as? String {
                     ContactCotroller.shared.token = token
+                    ActionController.shared.token = token
                     self.token = token
                     completion(token)
                 }
                 if let id = json["userId"] as? Int {
                     ContactCotroller.shared.userId = id
+                     ActionController.shared.userId = id
                     self.userId = id
                 }
                 

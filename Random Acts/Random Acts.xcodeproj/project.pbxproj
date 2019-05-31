@@ -24,12 +24,12 @@
 		A50CE1B7229F597700C9707C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CE1B6229F597700C9707C /* Activity.swift */; };
 		A50CE1B9229F59A900C9707C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CE1B8229F59A900C9707C /* LoginViewController.swift */; };
 		A5CA20AA229F75FD0052A78E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA20A9229F75FD0052A78E /* RegisterViewController.swift */; };
+		A5CA20AE22A19F5D0052A78E /* ActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA20AD22A19F5D0052A78E /* ActionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9E2637B522A05D820052F862 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
 		9E9730E0229DDDF70022D645 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
-		9E9730E5229EE7FC0022D645 /* RandomActsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomActsController.swift; sourceTree = "<group>"; };
 		A507D1FD229DC96700A36AFC /* Random Acts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Random Acts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A507D200229DC96700A36AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A507D205229DC96700A36AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,7 @@
 		A50CE1B6229F597700C9707C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		A50CE1B8229F59A900C9707C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5CA20A9229F75FD0052A78E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A5CA20AD22A19F5D0052A78E /* ActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +74,8 @@
 		9E9730E7229EE8060022D645 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9E9730E5229EE7FC0022D645 /* RandomActsController.swift */,
 				A50CE1B4229F580500C9707C /* LoginController.swift */,
+				A5CA20AD22A19F5D0052A78E /* ActionController.swift */,
 				A507D227229F2F5300A36AFC /* ContactController.swift */,
 				9E2637B522A05D820052F862 /* ThemeHelper.swift */,
 			);
@@ -209,6 +210,7 @@
 				A5CA20AA229F75FD0052A78E /* RegisterViewController.swift in Sources */,
 				9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */,
 				A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */,
+				A5CA20AE22A19F5D0052A78E /* ActionController.swift in Sources */,
 				A50CE1B7229F597700C9707C /* Activity.swift in Sources */,
 				A50CE1B3229F51CE00C9707C /* User.swift in Sources */,
 			);
