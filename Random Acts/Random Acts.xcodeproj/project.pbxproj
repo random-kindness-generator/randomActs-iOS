@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E2637B622A05D820052F862 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2637B522A05D820052F862 /* ThemeHelper.swift */; };
 		9E9730E1229DDDF70022D645 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730E0229DDDF70022D645 /* Contacts.swift */; };
+		9E9730EB229F1F1C0022D645 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9730EA229F1F1C0022D645 /* Bearer.swift */; };
 		A507D201229DC96700A36AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D200229DC96700A36AFC /* AppDelegate.swift */; };
 		A507D206229DC96700A36AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A507D204229DC96700A36AFC /* Main.storyboard */; };
 		A507D208229DC96B00A36AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A507D207229DC96B00A36AFC /* Assets.xcassets */; };
@@ -19,14 +21,17 @@
 		A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */; };
 		A507D228229F2F5300A36AFC /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507D227229F2F5300A36AFC /* ContactController.swift */; };
 		A50CE1B3229F51CE00C9707C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CE1B2229F51CE00C9707C /* User.swift */; };
+		A50CE1B5229F580500C9707C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CE1B4229F580500C9707C /* LoginController.swift */; };
 		A50CE1B7229F597700C9707C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CE1B6229F597700C9707C /* Activity.swift */; };
 		A50CE1B9229F59A900C9707C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CE1B8229F59A900C9707C /* LoginViewController.swift */; };
 		A5CA20AA229F75FD0052A78E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA20A9229F75FD0052A78E /* RegisterViewController.swift */; };
-		A5CA20AC22A051540052A78E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA20AB22A051540052A78E /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E2637B522A05D820052F862 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
 		9E9730E0229DDDF70022D645 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		9E9730E5229EE7FC0022D645 /* RandomActsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomActsController.swift; sourceTree = "<group>"; };
+		9E9730EA229F1F1C0022D645 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		A507D1FD229DC96700A36AFC /* Random Acts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Random Acts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A507D200229DC96700A36AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A507D205229DC96700A36AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,10 +45,10 @@
 		A507D21A229EE2A700A36AFC /* GestureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GestureDetailViewController.swift; path = ../GestureDetailViewController.swift; sourceTree = "<group>"; };
 		A507D227229F2F5300A36AFC /* ContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactController.swift; path = "Random Acts/Model Controller/ContactController.swift"; sourceTree = SOURCE_ROOT; };
 		A50CE1B2229F51CE00C9707C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A50CE1B4229F580500C9707C /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		A50CE1B6229F597700C9707C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		A50CE1B8229F59A900C9707C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5CA20A9229F75FD0052A78E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		A5CA20AB22A051540052A78E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 			children = (
 				9E9730E0229DDDF70022D645 /* Contacts.swift */,
 				A50CE1B6229F597700C9707C /* Activity.swift */,
+				9E9730EA229F1F1C0022D645 /* Bearer.swift */,
 				A50CE1B2229F51CE00C9707C /* User.swift */,
 			);
 			path = Models;
@@ -70,8 +76,10 @@
 		9E9730E7229EE8060022D645 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E9730E5229EE7FC0022D645 /* RandomActsController.swift */,
+				A50CE1B4229F580500C9707C /* LoginController.swift */,
 				A507D227229F2F5300A36AFC /* ContactController.swift */,
-				A5CA20AB22A051540052A78E /* LoginController.swift */,
+				9E2637B522A05D820052F862 /* ThemeHelper.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A50CE1B9229F59A900C9707C /* LoginViewController.swift in Sources */,
+				9E9730EB229F1F1C0022D645 /* Bearer.swift in Sources */,
+				A50CE1B5229F580500C9707C /* LoginController.swift in Sources */,
+				9E2637B622A05D820052F862 /* ThemeHelper.swift in Sources */,
 				A507D201229DC96700A36AFC /* AppDelegate.swift in Sources */,
 				A507D213229EE20700A36AFC /* ContactsTableViewController.swift in Sources */,
 				A507D219229EE28B00A36AFC /* ContactDetailViewController.swift in Sources */,
@@ -204,7 +215,6 @@
 				A507D21B229EE2A700A36AFC /* GestureDetailViewController.swift in Sources */,
 				A50CE1B7229F597700C9707C /* Activity.swift in Sources */,
 				A50CE1B3229F51CE00C9707C /* User.swift in Sources */,
-				A5CA20AC22A051540052A78E /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

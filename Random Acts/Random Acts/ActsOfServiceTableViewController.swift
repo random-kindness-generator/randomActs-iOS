@@ -19,6 +19,8 @@ class ActsOfServiceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = ThemeHelper.customBlue
         
     }
     
@@ -35,8 +37,20 @@ class ActsOfServiceTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gestureCell", for: indexPath)
         
         // Configure the cell...
+        style(cell: cell)
         
         return cell
+    }
+
+    private func style(cell: UITableViewCell) {
+
+        cell.layer.cornerRadius = 8.0
+        cell.textLabel?.backgroundColor = .clear
+        cell.detailTextLabel?.backgroundColor = .clear
+
+        cell.backgroundColor = ThemeHelper.customBlue
+
+
     }
     
     /*

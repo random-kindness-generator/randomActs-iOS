@@ -51,6 +51,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        ThemeHelper.buttonStyle(for: registerButton)
+        passOutlet.layer.cornerRadius = 10.0
+        usernameOutlet.layer.cornerRadius = 10.0
+        view.backgroundColor = ThemeHelper.customBlue
         
         
     }
