@@ -775,12 +775,15 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yi8-F6-yRP">
+                                    <button autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yi8-F6-yRP">
                                         <rect key="frame" x="0.0" y="406" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2qx-3H-mSZ"/>
                                         </constraints>
-                                        <state key="normal" title="Tap on Me" backgroundImage="heartLogo"/>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="30"/>
+                                        <state key="normal" title="Generate">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="goodWillButtonTapped:" destination="OY5-Xu-m4Z" eventType="touchUpInside" id="d7P-4d-pRk"/>
                                         </connections>
@@ -813,7 +816,6 @@
     <resources>
         <image name="database" width="30" height="30"/>
         <image name="gift" width="30" height="30"/>
-        <image name="heartLogo" width="1040" height="858"/>
         <image name="people" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

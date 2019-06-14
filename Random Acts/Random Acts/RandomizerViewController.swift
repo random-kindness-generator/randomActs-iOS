@@ -20,11 +20,11 @@ class RandomizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.changeButtonImage()
-        view.backgroundColor = ThemeHelper.customPink
+        view.backgroundColor = ThemeHelper.customBlue
         contactNameLabel.text = " "
         goodWillButton.layer.cornerRadius = 20.0
         gestureTextView.layer.cornerRadius = 8.0
+        goodWillButton.setTitle("Generate", for: .normal)
     }
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -35,15 +35,6 @@ class RandomizerViewController: UIViewController {
                 self.actions = actions
             }
         }
-
-         func changeButtonImage() {
-
-            let logo = UIImage(named: "heartLogo")
-            self.goodWillButton.setImage(logo, for: .normal)
-
-
-        }
-
 
         @IBAction func goodWillButtonTapped(_ sender: Any) {
 
